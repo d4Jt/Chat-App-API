@@ -19,6 +19,7 @@ pipeline {
             // sh 'nvm install 18'
             sh 'curl -f https://get.pnpm.io/v6.js | node - add --global pnpm '
             sh 'pnpm -v'
+            sh 'pnpm install'
             sh 'pnpm test'
          }
       }
