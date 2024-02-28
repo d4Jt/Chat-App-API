@@ -11,7 +11,7 @@ pipeline {
          steps {
             sh '''
             curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            sudo apt-get install -y nodejs
+            yum install -y nodejs
             '''
             sh 'node -v'
             // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
