@@ -1,6 +1,9 @@
 
 pipeline {
    agent any
+   tools {
+      nodejs "nodejs-20.x"
+   }
    stages{
       stage('checkout') {
          steps {
@@ -9,10 +12,7 @@ pipeline {
       }
       stage('Test') {
          steps {
-            sh '''
-            curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-            yum install -y nodejs
-            '''
+
             sh 'node -v'
             // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
             // sh '. ~/.nvm/nvm.sh'
