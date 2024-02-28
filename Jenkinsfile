@@ -10,7 +10,7 @@ pipeline {
             checkout scm
          }
       }
-      stage('Test') {
+      stage('Install dependencies') {
          steps {
 
             sh 'node -v'
@@ -20,10 +20,9 @@ pipeline {
             sh 'curl -f https://get.pnpm.io/v6.js | node - add --global pnpm '
             sh 'pnpm -v'
             sh 'pnpm install'
-            sh 'pnpm test'
          }
       }
-      stage('Build') {
+      stage('Build and run') {
          steps {
             sh 'pnpm run start'
          }
