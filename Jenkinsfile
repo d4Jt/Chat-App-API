@@ -1,12 +1,12 @@
 pipeline {
   agent any
   stages(
-    stage("checkout") {
+    stage('checkout') {
       steps {
         checkout scm
       }
     }
-    stage("Test") {
+    stage('Test') {
       agent any
       steps {
         // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
@@ -17,7 +17,7 @@ pipeline {
         sh 'pnpm test'
       }
     }
-    stage("Build) {
+    stage('Build') {
           steps {
             sh 'pnpm run start'
           }
