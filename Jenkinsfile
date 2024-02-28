@@ -6,7 +6,7 @@ pipeline {
         checkout scm
       }
     }
-    stage("Test") {
+    stage("test") {
       steps {
         sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
         sh '. ~/.nvm/nvm.sh'
@@ -16,7 +16,7 @@ pipeline {
         sh 'pnpm test'
       }
     }
-    stage("Build) {
+    stage("build) {
           steps {
             sh 'pnpm run start'
           }
