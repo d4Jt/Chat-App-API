@@ -1,3 +1,4 @@
+
 pipeline {
   agent any
   stages{
@@ -8,9 +9,13 @@ pipeline {
     }
     stage('Test') {
       steps {
-        sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
-        sh '. ~/.nvm/nvm.sh'
-        sh 'nvm install 18'
+         nodejs(nodeJSInstallationName: 'Node 6.x', configId: '<config-file-provider-id>') {
+                    sh 'npm config ls'
+                }
+        sh 'node -v'
+        // sh 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash'
+        // sh '. ~/.nvm/nvm.sh'
+        // sh 'nvm install 18'
         sh 'curl -f https://get.pnpm.io/v6.js | node - add --global pnpm '
         sh 'pnpm -v'
         sh 'pnpm test'
