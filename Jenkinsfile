@@ -1,4 +1,3 @@
-
 pipeline {
    agent any
    tools {
@@ -22,20 +21,21 @@ pipeline {
             sh 'pnpm install'
          }
       }
-      stage('Build image') {
-         steps {
-            sh 'docker build -t chat-app:1.0 .'
-         }
-      }
+      // stage('Build image') {
+      //    steps {
+      //       sh 'docker build -t chat-app:1.0 .'
+      //    }
+      // }
 
-      stage('Docker push') {
-         steps {
-            withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
-               sh 'docker login -u $USERNAME -p $PASSWORD'
-               sh 'docker tag chat-app:1.0 $USERNAME/chat-app:1.0'
-               sh 'docker push $USERNAME/chat-app:1.0'
-               sh 'docker logout'
-            }
-      }
+      // stage('Docker push') {
+      //    steps {
+      //       withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+      //          sh 'docker login -u $USERNAME -p $PASSWORD'
+      //          sh 'docker tag chat-app:1.0 $USERNAME/chat-app:1.0'
+      //          sh 'docker push $USERNAME/chat-app:1.0'
+      //          sh 'docker logout'
+      //       }
+      //    }
+      // }
    }
 }
