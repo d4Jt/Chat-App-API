@@ -1,0 +1,16 @@
+
+# build
+docker build -t image-name:tag .
+
+# run
+
+docker run -d -p 4090:4090 image-name:tag
+
+-d la detach -p la port
+
+cai tren -t la tag
+
+
+#
+1. Add jenkins user -> docker: sudo usermod -a -G docker jenkins
+2. Using jenkins no passwd
