@@ -1,11 +1,12 @@
 const swaggerAutogen = require('swagger-autogen')();
+require('dotenv').config();
 
 const doc = {
    info: {
       title: 'Chat App API',
       description: 'API for chat application',
    },
-   host: 'http://18.136.102.168:4090/',
+   host: process.env.HOST,
 };
 
 const outputFile = './swagger-output.json';
