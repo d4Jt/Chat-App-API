@@ -21,6 +21,7 @@ pipeline {
           steps {
              sh 'docker build -t $USERNAME/chat-app:1.0 .'
              sh 'docker push $USERNAME/chat-app:1.0'
+             sh 'docker run -dp 4090:4090 $USERNAME/chat-app:1.0
              sh 'docker logout'
             //  withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
             //     sh 'docker login -u $USERNAME -p $PASSWORD'
